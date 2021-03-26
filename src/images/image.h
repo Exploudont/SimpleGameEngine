@@ -6,7 +6,7 @@
 namespace Image {
 
 	struct image {
-		char* file_path;
+		const char* file_path;
 		uint32_t width;
 		uint32_t height;
 		uint8_t* datas;

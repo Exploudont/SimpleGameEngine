@@ -24,3 +24,34 @@ Level of logs:
 - ERROR
 - FATAL
 - DEBUG
+
+## Texture
+A texture is an image applied on a Mesh.
+In base of API there are varius implementation of the Texture:
+- TextureOpenGL
+- TextureVulkan (in progress)
+
+The texture have:
+- image (Image)
+- id
+- type (TextureType)
+
+
+### Image
+Is the structure at the base of Texture.
+It si compose to:
+- file path: lotation of the image file
+- width
+- height
+- raw image datas
+
+### TextureType
+The texture type define how to read and manipolate the texture.
+It can be:
+- COLOR_TEXTURE (RGB)
+- ALPHA_TEXTURE
+- NORMAL_MAP
+- DISPACEMENT_MAP
+- LIGHT_MAP
+
+

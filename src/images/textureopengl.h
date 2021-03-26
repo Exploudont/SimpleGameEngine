@@ -22,25 +22,27 @@ namespace Image {
 		* Generate Unique ID for the Texture using OpenGL calls.
 		*/
 		inline void generateID() {
-			glGenTextures(1, &this->id);
-			glBindTexture(GL_TEXTURE_2D, this->id);
+			//glGenTextures(1, &this->id);
+			//glBindTexture(GL_TEXTURE_2D, this->id);
 		}
 		
 		/*
 		* Load on GPU the Image Texture using OpenGL calls.
 		*/
 		inline void LoadOnGPU() {
+			/*
 			glTexImage2D(GL_TEXTURE_2D, 0, getOpenGLTextureType(type),
 				&img->width, &img->height, 0,
 				GL_RGB, GL_UNSIGNED_BYTE, img->datas);
+			*/
 		}
 		
 		/*
 		* Generate the Mipmap using OpenGL calls.
 		*/
 		inline void generateMipmap() {
-			glGenMipmap(GL_TEXTURE_2D);
-			glBindTexture(GL_TEXTURE_2D, 0);
+			//glGenMipmap(GL_TEXTURE_2D);
+			//glBindTexture(GL_TEXTURE_2D, 0);
 		}
 	
 		/*
@@ -48,6 +50,7 @@ namespace Image {
 		* If not valid by default return a color texture type.
 		*/
 		int getOpenGLTextureType(enum TextureType type) {
+			/*
 			switch(type) {
 				case TextureType::COLOR_TEXTURE:	return GL_RGB;
 				case TextureType::LIGHT_MAP:		return GL_LUMINANCE;
@@ -55,6 +58,8 @@ namespace Image {
 			}
 			
 			return GL_RGB;
+			*/
+			return 0;
 		}
 	
 	};
