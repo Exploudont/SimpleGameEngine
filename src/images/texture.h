@@ -1,53 +1,37 @@
 #ifndef _SIMPLE_GAME_ENGINE_TEXTURE_H_
 	#define _SIMPLE_GAME_ENGINE_TEXTURE_H_
 
+#include "../types.h"
 #include "image.h"
 #include "imageloader.h"
 #include "texturetype.h"
+#include "../loggingsystem/Logger.h"
 
 namespace Image {
-	
+
+	/*
+	* Abstract class to rappresent the Texture.
+	* Not contains attributes because they can be implement using optimized methods.
+	*/	
 	class Texture {
 		public:
-		
-			/*
-			* Create a Texture Object.
-			*/
-			Texture(const char* file_path, enum TextureType type) {
-				this->type = type;
-				img = loadImage(file_path);
-			}
-			
-			/*
-			* Create a Texture color Object.
-			*/
-			//Texture(const char* file_path): this(file_path, TextureType::COLOR_TEXTURE) {}
 			
 			/*
 			* Return the Image structure that rappresent the Image.
 			*/
-			//Image* getImage() { return this->img; }
-			
-			/*
-			* Return the ID of the Texture.
-			*/
-			//uint32_t getID() { return this->id; }
-			
+			virtual Image* getImage() = 0;
+
 			/*
 			* Return the pointer to Texture's ID.
 			*/
-			uint32_t* getID() { return &this->id; }
-			
+			virtual u32* getID() = 0;
+
 			/*
 			* Return the type of the Texture.
 			*/
-			enum TextureType getTextureType() { return this->type; }
-		
-		
-		protected:
-			Image* img;
-			uint32_t id;
-			enum TextureType type;
+			virtual enum TextureType getTextureType() = 0;
+
+			
 	};
 };
 

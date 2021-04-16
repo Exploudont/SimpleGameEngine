@@ -3,6 +3,10 @@ Is a simple game engine.
 
 # Components
 
+## Types
+the first file "types.h" abstract the size of the type used into the game engine.
+This is necessary because different compilers/platform can use different size of types.
+
 ## Geometry
 Is a package that contains all geometric structures, used into a game.
 vertices:
@@ -24,6 +28,8 @@ Level of logs:
 - ERROR
 - FATAL
 - DEBUG
+
+The logs can be enabled in execution if are compiled.
 
 ## Texture
 A texture is an image applied on a Mesh.

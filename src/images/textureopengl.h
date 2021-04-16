@@ -7,16 +7,41 @@
 
 namespace Image {
 
+	/*
+	* Texture for OpenGL.
+	*/
 	class TextureOpenGL : public Texture {
 	public:	
-		
-		TextureOpenGL(const char* file_path, enum TextureType type): Texture(file_path, type) {
+
+		/*
+		* Create OpenGL Texture.
+		*/
+		TextureOpenGL(const char* file_path, enum TextureType type) {
 			generateID();
 			LoadOnGPU();	
 			generateMipmap();
+
+			// can be created more efficiently using the SOIL loader.
 		}
 
-	
+		/*
+		* Return the Image structure that rappresent the Image.
+		*/
+		Image* getImage() override { return this->img; }
+
+
+		/*
+		* Return the pointer to Texture's ID.
+		*/
+		u32* getID() override { return &this->id; }
+
+
+		/*
+		* Return the type of the Texture.
+		*/
+		enum TextureType getTextureType() override { return this->type; }
+
+
 	private:
 		/*
 		* Generate Unique ID for the Texture using OpenGL calls.
@@ -24,6 +49,7 @@ namespace Image {
 		inline void generateID() {
 			//glGenTextures(1, &this->id);
 			//glBindTexture(GL_TEXTURE_2D, this->id);
+			LOG_INFO("Texture ID generated");
 		}
 		
 		/*
@@ -35,6 +61,7 @@ namespace Image {
 				&img->width, &img->height, 0,
 				GL_RGB, GL_UNSIGNED_BYTE, img->datas);
 			*/
+			LOG_INFO("Texture loaded on GPU");
 		}
 		
 		/*
@@ -43,6 +70,7 @@ namespace Image {
 		inline void generateMipmap() {
 			//glGenMipmap(GL_TEXTURE_2D);
 			//glBindTexture(GL_TEXTURE_2D, 0);
+			LOG_INFO("Generated mipmap");
 		}
 	
 		/*
@@ -61,6 +89,11 @@ namespace Image {
 			*/
 			return 0;
 		}
+
+
+		Image* img;		// 8Byte pointer
+		u32 id;		// 4Byte 
+		enum TextureType type;	// 1Byte (assigned by compiler)
 	
 	};
 	

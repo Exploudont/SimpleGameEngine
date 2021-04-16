@@ -4,9 +4,17 @@
 #include "vec4D.h"
 
 namespace Geometry {
-	
+
+	/*
+	* Rappresent a Line4D.
+	*
+	* - v: 8Byte.
+	*	contains 2 vec4D.
+	*
+	* Structure cost in space 8Byte.
+	*/
 	struct line4D {
-		vec4D v1, v2;
+		vec4D v[2];
 	};
 	
 	typedef struct line4D line4D;

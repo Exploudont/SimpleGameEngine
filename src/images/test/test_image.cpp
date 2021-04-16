@@ -1,4 +1,5 @@
 #include "../image.h"
+#include "../../loggingsystem/Logger.h"
 
 #include <stdio.h>
 #include <stdint.h>
@@ -6,6 +7,7 @@
 
 void printIMG(Image::Image* img) {
 
+	LOG_INFO("Print Image:");
 	printf("file path> %s\n", img->file_path);
 	printf("width> %u\n", img->width);
 	printf("heigth> %u\n", img->height);
@@ -16,6 +18,8 @@ void printIMG(Image::Image* img) {
 }
 
 void addValues(Image::Image* img) {
+	LOG_DEBUG("load image values");
+
 	img->file_path = "immagine.jpg";
 	img->width = 10;
 	img->height = 20;
