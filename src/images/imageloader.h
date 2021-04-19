@@ -19,6 +19,7 @@ namespace Image {
 		img->file_path = file_path;
 		img->datas = NULL;
 		//img->datas = SOIL_image_loader(img->file_path, &img->width, &img->height, 0, SOIL_LOAD_RGB);
+		img->num_channels = 3;
 
 		LOG_DEBUG("Image loaded");
 		return img;

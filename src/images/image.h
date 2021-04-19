@@ -22,7 +22,7 @@ namespace Image {
 		char* file_path;
 		u32 width;
 		u32 height;
-		//u8 num_channels;
+		u8 num_channels;
 		u8* datas;
 	};
 	typedef struct image Image;
